@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="YTcover-style.css">
+    <a href="main.html">Enter Portfolio</a>
+</head>
+<body>
+    <div class="cover-container" id="coverPage">
+        <div class="cover-content">
+            <div class="youtube-icon">
+                <svg viewBox="0 0 90 60" width="120" height="80" aria-label="YouTube icon">
+                    <rect x="10" y="5" width="70" height="50" rx="12" fill="#FF0000" />
+                    <polygon points="40,20 60,30 40,40" fill="white" />
+                </svg>
+            </div>
+            <h1 class="cover-name">Tiffany De la Pena</h1>
+            <p class="cover-tagline">Creative Portfolio</p>
+            <a href="main.html" class="enter-button" id="enterBtn">
+                Enter Portfolio
+            </a>
+        </div>
+    </div>
+
+    <script>
+        const enterBtn = document.getElementById('enterBtn');
+        const coverPage = document.getElementById('coverPage');
+
+        enterBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            coverPage.classList.add('fade-out');
+            setTimeout(() => {
+                window.location.href = 'main.html';
+            }, 600);
+        });
+    </script>
+</body>
+</html>

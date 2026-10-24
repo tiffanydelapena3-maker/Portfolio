@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.cover-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+    position: relative;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.cover-container.fade-out {
+    opacity: 0;
+    transform: scale(1.05);
+    pointer-events: none;
+}
+
+.cover-container::before {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255, 0, 0, 0.15) 0%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.cover-content {
+    text-align: center;
+    color: white;
+    z-index: 1;
+    padding: 2rem;
+    animation: fadeInUp 1s ease forwards;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.youtube-icon {
+    margin-bottom: 2rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.youtube-icon svg {
+    filter: drop-shadow(0 4px 20px rgba(255, 0, 0, 0.4));
+}
+
+.cover-name {
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.cover-tagline {
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    color: #cbd5e1;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.enter-button {
+    display: inline-block;
+    padding: 0.9rem 2.5rem;
+    background: #FF0000;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: 0 4px 20px rgba(255, 0, 0, 0.4);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.enter-button:hover {
+    background: #e60000;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(255, 0, 0, 0.5);
+}
+
+.enter-button:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 480px) {
+    .youtube-icon svg {
+        width: 90px;
+        height: 60px;
+    }
+
+    .enter-button {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+    }
+}
